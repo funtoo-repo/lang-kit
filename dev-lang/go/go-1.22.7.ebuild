@@ -5,18 +5,14 @@ EAPI=7
 export CBUILD=${CBUILD:-${CHOST}}
 export CTARGET=${CTARGET:-${CHOST}}
 
-GO_BOOTSTRAP_MIN={{ bootstrap_min }}
+GO_BOOTSTRAP_MIN=1.20.14
 MY_PV=${PV/_/}
 
 inherit toolchain-funcs
 
 SRC_URI="https://storage.googleapis.com/golang/go${MY_PV}.src.tar.gz "
 S="${WORKDIR}"/go
-{%- if unmasked %}
 KEYWORDS="*"
-{%- else %}
-KEYWORDS=""
-{%- endif %}
 
 DESCRIPTION="A concurrent garbage collected and typesafe programming language"
 HOMEPAGE="https://golang.org"
